@@ -16,6 +16,9 @@ const OrderContainer = ({ Promise }) => {
 
   const handleOrder = (order) => {
     const isExist = cookingItems.find((item) => item.id == order.id);
+    if (order !== isExist) {
+      toast.success("Food is Cooking Now");
+    }
 
     if (isExist) {
       toast.error("Order already on Processing");
@@ -28,6 +31,7 @@ const OrderContainer = ({ Promise }) => {
 
   const handleCooking = (order) => {
     // 1. readyItem er vitore order k dukao
+    toast.success("Your Food is ready");
     order.cookedAt = new Date().toLocaleTimeString();
     const newReadyItems = [...readyItems, order];
     setReadyItems(newReadyItems);
