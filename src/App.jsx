@@ -4,6 +4,7 @@ import Heading from "./Components/Heading";
 import Navbar from "./Components/Navbar";
 import OrderContainer from "./Components/OrderContainer";
 import States from "./Components/States";
+
 const loadOrders = () => fetch("/orders.json").then((res) => res.json());
 
 function App() {

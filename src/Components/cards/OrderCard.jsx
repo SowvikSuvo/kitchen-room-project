@@ -1,10 +1,13 @@
 import { UtensilsCrossed } from "lucide-react";
 
-const OrderCard = ({ order }) => {
+const OrderCard = ({ order, handleOrder }) => {
   // Static data (mock order)
 
   return (
-    <div className="p-5 rounded-xl shadow-xl relative space-y-3">
+    <div
+      onClick={() => handleOrder(order)}
+      className="p-5 rounded-xl shadow-xl relative space-y-3"
+    >
       {/* Order Number */}
       <p className="text-xs bg-amber-400 p-2 inline-block rounded-xl">
         #{order.order_no}
@@ -18,12 +21,12 @@ const OrderCard = ({ order }) => {
 
       {/* Special Instruction */}
       <div className="mt-3 text-xs">
-        <h4 className="text-primary font-bold text-sm">Instruction</h4>
+        <h4 className="text-amber-400 font-bold text-sm">Instruction</h4>
         <p>{order.special_instruction}</p>
       </div>
 
       {/* Table Number Badge */}
-      <div className="absolute right-2 top-2 w-10 h-10 flex justify-center items-center bg-primary rounded-full opacity-30 text-white">
+      <div className="absolute right-2 top-2 w-10 h-10 flex justify-center items-center bg-amber-400 rounded-full opacity-80 text-white">
         {order.table_no}
       </div>
     </div>
